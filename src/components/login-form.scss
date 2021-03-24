@@ -1,0 +1,86 @@
+@import "../styles/vars.scss";
+
+// grid container
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1.3fr 0.5fr 0.5fr 2fr;
+  gap: 0px 0px;
+}
+.header {
+  grid-area: 1 / 1 / 2 / 5;
+  justify-self: center;
+}
+.username {
+  grid-area: 2 / 1 / 3 / 5;
+  justify-self: center;
+}
+.password {
+  grid-area: 3 / 1 / 4 / 5;
+  justify-self: center;
+}
+.login-btn-container {
+  grid-area: 4 / 1 / 5 / 5;
+  justify-self: center;
+}
+// main
+
+.grid-container {
+  position: relative;
+  max-width: 400px;
+  max-height: 500px;
+  margin: 0 auto;
+}
+
+.login-container {
+  border-radius: 25px;
+  background-color: var(--cl-pri2);
+  box-shadow: var(--shadow-l);
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0 10px 0;
+  }
+}
+
+.username,
+.password {
+  input {
+    width: 300px;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ced4da;
+    border-radius: 30px;
+    margin-bottom: 1.5em;
+  }
+}
+
+.login-btn-container {
+  width: 100%;
+  height: fit-content;
+  > button {
+    display: block;
+    margin: 0px auto;
+    width: 250px;
+    padding: 0.4rem 0.8rem;
+    height: calc(1.5em + 0.75rem + 2px);
+    border-radius: 30px;
+    color: black;
+    background-color: var(--cl-sec);
+    box-shadow: none;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .btn-container {
+    position: absolute;
+    bottom: 4%;
+    width: 100%;
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  }
+}

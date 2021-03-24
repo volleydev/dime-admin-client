@@ -1,5 +1,9 @@
+import { LoginForm } from "./components/login-form"
+
 function App() {
-  return <div>{/* Auth rein */}</div>;
+  return <div>
+    < LoginForm/>
+  </div>
 }
 
 export default App;

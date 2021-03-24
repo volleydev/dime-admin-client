@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.scss";
-import App from "./app";
+import App from "./App";
 
 import dotenv from "dotenv";
 
