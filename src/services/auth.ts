@@ -1,10 +1,21 @@
 // Hir kommt alles mit Firebase Auth rein
 
-export const signUp = async (): Promise<void> => {
+interface Credentials {
+  email: string;
+  password: string;
+}
+
+export const signUp = async ({
+  email,
+  password,
+}: Credentials): Promise<void> => {
   return mockRequest;
 };
 
-export const signIn = async (): Promise<void> => {
+export const signIn = async ({
+  email,
+  password,
+}: Credentials): Promise<void> => {
   return mockRequest;
 };
 
