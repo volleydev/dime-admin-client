@@ -1,6 +1,5 @@
 import "./login-form.scss";
 
-
 // TODO
 // 1. UI
 // 2. Firebase Auth service -> service/auth.ts
@@ -15,36 +14,13 @@ import "./login-form.scss";
 
 // Ziel: Token bekommen damit wir in der Api durchkommen
 
-
 export const LoginForm = () => {
-
-
-
   return (
-  <div className="body">
-
-    <div className="grid-container login-container">
-
-      <div className="header"><h2>Login</h2></div>
-
-      <div className="username">
-      <input placeholder="Email" id="email" name="email" type="text"/>
-      </div>
-      <div className="password">
-      <input placeholder="Password" name="password" type="text"/>
-      </div>
-      <div className="login-btn-container">
-      <button id="logsubmit-btn" >LOGIN</button>
-        <div className="btn-container">
-        <img src="./google-icon.png" alt="googleicon"/>
-        </div>
-      </div>
-     
+    <div className="login-form">
+      <h2>Login</h2>
+      <input placeholder="Email" id="email" name="email" type="text" />
+      <input placeholder="Password" name="password" type="text" />
+      <button id="logsubmit-btn">LOGIN</button>
     </div>
-
-  </div>
-  )
-
+  );
 };
-
-

@@ -1,3 +1,5 @@
+@import "../styles/vars.scss";
+
 body {
   margin: 0;
   font-family: var(--font-a), sans-serif;
@@ -8,4 +10,47 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 30px;
+}
+
+button {
+  padding: 0.4rem 3.8rem;
+  height: calc(1.5em + 0.75rem + 2px);
+  border-radius: 30px;
+  color: white;
+  background-color: var(--cl-sec);
+  border: 1px solid transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
 }
