@@ -1,0 +1,13 @@
+.singup-form {
+  display: grid;
+  padding: calc(var(--space) * 4);
+  gap: calc(var(--space) * 3);
+  place-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-s);
+  border-radius: 30px;
+  > input {
+    width: 100%;
+  }
+}
