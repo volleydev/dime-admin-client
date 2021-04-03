@@ -1,3 +1,4 @@
+import { signIn } from "../services/auth";
 import "./login-form.scss";
 
 // TODO
@@ -20,7 +21,14 @@ export const LogIn = () => {
       <h2>Login</h2>
       <input placeholder="Email" id="email" name="email" type="text" />
       <input placeholder="Password" name="password" type="text" />
-      <button id="logsubmit-btn">LOGIN</button>
+      <button
+        id="logsubmit-btn"
+        onClick={() =>
+          signIn({ email: "some@email.de", password: "asdnc3763" })
+        }
+      >
+        LOGIN
+      </button>
     </div>
   );
 };
