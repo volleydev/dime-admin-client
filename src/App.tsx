@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-import { LogIn } from "./components/login-form"
-import {SignUp} from './components/signup-form'
 
-function App() {
-  return <div>
-    <br/>
-    < LogIn/>
-  <br/>
-    <SignUp/>
-  </div>
-=======
 import { BrowserRouter, Route } from "react-router-dom";
 import { Header } from "./components/header";
 
@@ -31,7 +20,7 @@ function App() {
       </BrowserRouter>
     </div>
   );
->>>>>>> f8450f6431923a2ee02f0902c6ff595149f2c3b0
+
 }
 
 export default App;
