@@ -2,6 +2,7 @@
 
 import { useState, Dispatch, SetStateAction, useEffect } from "react";
 
+
 interface Credentials {
   email: string;
   password: string;
@@ -13,6 +14,7 @@ export interface User {
 }
 
 let setters: Dispatch<SetStateAction<User | undefined>>[] = [];
+console.log(setters);
 
 export const signUp = async ({
   email,
@@ -30,7 +32,9 @@ export const signIn = async ({
     localStorage.setItem("dime_user_cred", JSON.stringify(mockUser));
   }
   if (setters.length) {
-    setters.forEach((s) => s(mockUser));
+    setters.forEach((s) => {
+      s(mockUser)
+    });
   }
 
   return;

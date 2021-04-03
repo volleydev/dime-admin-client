@@ -22,7 +22,10 @@ export const Header: FC<{ user?: User }> = ({ user }) => {
           </Link>
         </>
       ) : (
-        <Link to="/auth/login">Login</Link>
+        <>
+        <Link to="/auth/login">Login</Link> 
+        <Link to="/auth/signUp">Sign Up</Link>
+        </>
       )}
     </header>
   );
