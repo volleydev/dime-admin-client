@@ -14,13 +14,13 @@ export interface User {
 }
 
 let setters: Dispatch<SetStateAction<User | undefined>>[] = [];
-console.log(setters);
 
 export const signUp = async ({
   email,
   password,
 }: Credentials): Promise<void> => {
-  return mockRequest;
+  return console.log(mockRequest);
+  
 };
 
 export const signIn = async ({
@@ -28,7 +28,7 @@ export const signIn = async ({
   password,
 }: Credentials): Promise<void> => {
   await mockRequest;
-  if (!localStorage.getItem("dime_user_cred")) {
+  if (!localStorage.getItem("dime_uxser_cred")) {
     localStorage.setItem("dime_user_cred", JSON.stringify(mockUser));
   }
   if (setters.length) {

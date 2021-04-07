@@ -1,4 +1,5 @@
 import { signIn } from "../services/auth";
+import { Link } from "react-router-dom";
 import "./login-form.scss";
 
 // TODO
@@ -29,6 +30,7 @@ export const LogIn = () => {
       >
         LOGIN
       </button>
+      <Link to="/auth/signUp">Sign Up</Link>
     </div>
   );
 };
