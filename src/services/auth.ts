@@ -1,8 +1,7 @@
 // Hir kommt alles mit Firebase Auth rein
 
 import { useState, Dispatch, SetStateAction, useEffect } from "react";
-
-
+import firebase from "firebase";
 interface Credentials {
   email: string;
   password: string;
@@ -19,22 +18,29 @@ export const signUp = async ({
   email,
   password,
 }: Credentials): Promise<void> => {
-  return console.log(mockRequest);
-  
+  try {
+    const userCredential = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password);
+    // POST -> userTable (email firebaseId)
+  } catch (error) {
+    console.log("authentication error", error);
+  }
 };
 
 export const signIn = async ({
   email,
   password,
 }: Credentials): Promise<void> => {
-  await mockRequest;
-  if (!localStorage.getItem("dime_uxser_cred")) {
-    localStorage.setItem("dime_user_cred", JSON.stringify(mockUser));
-  }
-  if (setters.length) {
-    setters.forEach((s) => {
-      s(mockUser)
-    });
+  try {
+    await firebase.auth().signInWithEmailAndPassword(email, password);
+    if (setters.length) {
+      setters.forEach((s) => {
+        s(mockUser);
+      });
+    }
+  } catch (error) {
+    console.log("signin error", error);
   }
 
   return;
