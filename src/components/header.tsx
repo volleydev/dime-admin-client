@@ -1,12 +1,11 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { signOut, User } from "../services/auth";
 
-export const Header: FC<{ user?: User }> = ({ user }) => {
+export const Header: FC<{ signedIn?: boolean }> = ({ signedIn }) => {
   return (
     <header>
       <nav>
-        {user && (
+        {signedIn && (
           <>
             <Link to="/">Menus</Link>
             <Link to="/items">Food/Drinks</Link>
@@ -14,16 +13,15 @@ export const Header: FC<{ user?: User }> = ({ user }) => {
           </>
         )}
       </nav>
-      {user ? (
+      {signedIn ? (
         <>
-          <button onClick={signOut}>Logout</button>
           <Link to="/profile">
             <i className="material-icons">person</i>
           </Link>
         </>
       ) : (
         <>
-        <Link to="/auth/login">Login</Link> 
+          <Link to="/auth/login">Login</Link>
         </>
       )}
     </header>

@@ -3,36 +3,29 @@ import { Header } from "./components/header";
 
 import { AuthPage } from "./pages/auth";
 import { MenusPage } from "./pages/menus";
-import { useAuthUser } from "./services/auth";
+import { listenToAuthStateChange, useAuthUser } from "./services/auth";
 
 import firebase from "firebase/app";
 import "firebase/auth";
 
 import firebaseConfig from "./firebaseConfig.json";
-import { useEffect } from "react";
-
-firebase.initializeApp(firebaseConfig);
+import { useEffect, useMemo } from "react";
 
 const App = () => {
   const user = useAuthUser();
 
+  useMemo(() => {
+    firebase.initializeApp(firebaseConfig);
+  }, []);
+
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (user) => {
-      if (user) {
-        // @ts-ignore
-        const idToken = await firebase.auth().currentUser.getIdToken(false);
-        localStorage.setItem("idToken", idToken);
-      } else {
-        // logout
-        localStorage.removeItem("idToken");
-      }
-    });
+    listenToAuthStateChange();
   }, []);
 
   return (
     <div>
       <BrowserRouter>
-        <Header user={user} />
+        <Header signedIn={!!user} />
         {!user ? (
           <Route path="/auth/:type" component={AuthPage} />
         ) : (
