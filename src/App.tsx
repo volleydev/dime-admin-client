@@ -14,9 +14,13 @@ import { useEffect, useMemo } from "react";
 const App = () => {
   const user = useAuthUser();
 
+
+  // hier folgendes eingefügt, da er mir nen fehlehr geschmissen hat 
+  // --> if (!firebase.apps.length) {}
   useMemo(() => {
+    if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
-  }, []);
+  } }, []);
 
   useEffect(() => {
     listenToAuthStateChange();

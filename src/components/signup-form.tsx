@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 import { signUp } from "../services/auth";
 
 export const SignUp = () => {
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   const handleSignup = () => {
-    signUp({ email, password });
+    signUp({  email, password });
   };
 
   return (
     <div className="singup-form">
       <h2>Sign Up</h2>
       <input
-        onChange={({ target: { value } }) => setUsername(value)}
+        // onChange={({ target: { value } }) => setUsername(value)}
         placeholder="Name"
         type="text"
         name="signup-name"
