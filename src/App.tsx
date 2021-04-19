@@ -33,7 +33,9 @@ const App = () => {
         {!user ? (
           <Route path="/auth/:type" component={AuthPage} />
         ) : (
+          <>
           <Route path="/" component={MenusPage} />
+          </>
         )}
       </BrowserRouter>
     </div>

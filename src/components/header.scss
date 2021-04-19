@@ -12,6 +12,7 @@ nav {
   padding: 0.5rem;
   position: relative;
   height: 80px;
+  box-shadow: var(--shadow-s);
 }
 
 .profil-link {
@@ -23,4 +24,32 @@ nav {
   display: flex;
   justify-content: flex-end;
   gap: calc(var(--space) * 2);
+}
+
+.icons {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .icons {
+    display: inline;
+  }
+  nav {
+    height: 60px;
+  }
+  .nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    background-color: var(--cl-pri-d);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    justify-content: center;
+    align-content: center;
+    > a {
+      display: none;
+    }
+  }
 }
