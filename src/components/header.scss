@@ -26,10 +26,6 @@ nav {
   gap: calc(var(--space) * 2);
 }
 
-.icons {
-  display: none;
-}
-
 @media screen and (max-width: 600px) {
   .icons {
     display: inline;
@@ -48,8 +44,12 @@ nav {
     grid-template-columns: 1fr 1fr 1fr 2fr;
     justify-content: center;
     align-content: center;
-    > a {
-      display: none;
+    // > a {
+    //   display: none;
+    // }
+    > i {
+      font-size: 30px;
+      margin: 0 auto;
     }
   }
 }
