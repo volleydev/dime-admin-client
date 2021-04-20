@@ -1,17 +1,42 @@
 import './header.scss'
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ItemsPage } from '../pages/items';
-import { forEachChild } from 'typescript';
+// import { forEachChild } from 'typescript';
+// import { ItemsPage } from '../pages/items';
+
 
 export const Header: FC<{ signedIn?: boolean }> = ({ signedIn }) => {
-  if(window.innerWidth <= 600){
-    const linkText = document.getElementsByClassName("link")
-    
-    for(let i in linkText){
-       console.log(linkText[i])
-    }
+
+  const [width, setWidth] = useState(0)
+
+useEffect(()=>{
+  const updateWidth= () => {
+    const newWidth = window.innerWidth;
+    setWidth(newWidth)
   }
+  window.addEventListener("resize", updateWidth);
+  return () => window.removeEventListener("resize", updateWidth) 
+
+}, [window.innerWidth])
+
+console.log(width);
+
+if(width <= 600){
+  // @ts-ignore
+  let linkText:any = document.getElementsByClassName("link") as HTMLInputElement
+  
+  for(let i in linkText){
+    if(typeof linkText[i].innerHTML === 'string'){
+      linkText[i].innerHTML =  linkText[i].innerHTML
+      .replace('Menus','')
+      .replace('Food/Drinks','')
+      .replace('Extras/Toppings','')
+    }
+    }
+}
+    
+
+
   return (
     <header>
       <nav>

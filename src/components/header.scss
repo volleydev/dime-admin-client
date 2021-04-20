@@ -25,7 +25,9 @@ nav {
   justify-content: flex-end;
   gap: calc(var(--space) * 2);
 }
-
+.icons {
+  display: none;
+}
 @media screen and (max-width: 600px) {
   .icons {
     display: inline;
