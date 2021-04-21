@@ -7,8 +7,12 @@ import { Link } from "react-router-dom";
 
 export const Header: FC<{ signedIn?: boolean }> = ({ signedIn }) => {
 
+  function handleLogBtn(){
+    console.log("hello log");
+  }
+
   function handlePlusBtn() {
-console.log("hello");  }
+console.log("hello plus");  }
 
   return (
     <header>
@@ -32,7 +36,7 @@ console.log("hello");  }
             </div>
             
             <Link className="profil-link " to="/profile">
-             <i className="material-icons">person</i>
+             <i onClick={handleLogBtn} className="material-icons">person</i>
             </Link>
           
           </>
