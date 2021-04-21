@@ -35,8 +35,11 @@ console.log("hello plus");  }
            </div>
             </div>
             
+            
             <Link className="profil-link " to="/profile">
              <i onClick={handleLogBtn} className="material-icons">person</i>
+             {/* <i onClick={handleLogBtn} className="material-icons">logout</i>
+             <i onClick={handleLogBtn} className="material-icons">login</i> */}
             </Link>
           
           </>
