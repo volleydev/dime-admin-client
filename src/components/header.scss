@@ -25,12 +25,41 @@ nav {
   justify-content: flex-end;
   gap: calc(var(--space) * 2);
 }
-.icons {
+
+.link-res {
   display: none;
 }
+
+.myCircle {
+  display: none;
+  width: 90px;
+  height: 45px;
+  border-bottom-left-radius: 110px;
+  border-bottom-right-radius: 110px;
+  border: 45px solid white;
+  border-top: 0;
+  position: absolute;
+  right: 2rem;
+  top: -0.1em;
+}
+
 @media screen and (max-width: 600px) {
-  .icons {
+  .myCircle {
     display: inline;
+    > .material-icons {
+      font-size: 5.5em;
+      position: fixed;
+      bottom: 0.2em;
+      right: 0.37em;
+      color: var(--cl-pri);
+      cursor: pointer;
+    }
+  }
+  .link-res {
+    display: inline;
+  }
+  .link {
+    display: none;
   }
   nav {
     height: 60px;
@@ -41,17 +70,18 @@ nav {
     left: 0;
     width: 100vw;
     height: 60px;
-    background-color: var(--cl-pri-d);
+    background: var(--cl-pri-d);
+    // background: linear-gradient(to bottom, var(--cl-pri-d), var(--cl-sec));
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 2fr;
     justify-content: center;
     align-content: center;
-    // > a {
-    //   display: none;
-    // }
-    > i {
-      font-size: 30px;
+    > a {
       margin: 0 auto;
+      > i {
+        font-size: 2em;
+        color: #fff;
+      }
     }
   }
 }

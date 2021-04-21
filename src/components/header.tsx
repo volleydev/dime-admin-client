@@ -1,41 +1,14 @@
 import './header.scss'
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { forEachChild } from 'typescript';
-// import { ItemsPage } from '../pages/items';
+
+
 
 
 export const Header: FC<{ signedIn?: boolean }> = ({ signedIn }) => {
 
-  const [width, setWidth] = useState(0)
-
-useEffect(()=>{
-  const updateWidth= () => {
-    const newWidth = window.innerWidth;
-    setWidth(newWidth)
-  }
-  window.addEventListener("resize", updateWidth);
-  return () => window.removeEventListener("resize", updateWidth) 
-
-}, [window.innerWidth])
-
-console.log(width);
-
-if(width <= 600){
-  // @ts-ignore
-  let linkText:any = document.getElementsByClassName("link") as HTMLInputElement
-  
-  for(let i in linkText){
-    if(typeof linkText[i].innerHTML === 'string'){
-      linkText[i].innerHTML =  linkText[i].innerHTML
-      .replace('Menus','')
-      .replace('Food/Drinks','')
-      .replace('Extras/Toppings','')
-    }
-    }
-}
-    
-
+  function handlePlusBtn() {
+console.log("hello");  }
 
   return (
     <header>
@@ -44,15 +17,21 @@ if(width <= 600){
           <>
           <h2>hello</h2>
           <div className="nav-bar">
-            <Link className="link" to="/">Menus <i className="material-icons icons">menu</i></Link> 
+            <Link className="link" to="/">Menus </Link> 
+            <Link className="link-res" to="/"> <i className="material-icons">menu</i></Link> 
            
-            <Link className="link" to="/items"> <i className="material-icons icons">restaurant_menu</i>Food/Drinks</Link>
+            <Link className="link" to="/items"> Food/Drinks</Link>
+            <Link className="link-res" to="/items"> <i className="material-icons">restaurant_menu</i></Link>
             
-            <Link className="link" to="/extras"> <i className="material-icons icons">note_add</i>Extras/Toppings</Link>
+            <Link className="link" to="/extras"> Extras/Toppings</Link>
+            <Link className="link-res" to="/extras"> <i className="material-icons">note_add</i></Link>
            
+           <div className="myCircle ">
+           <i className="material-icons circle" onClick={handlePlusBtn}>add_circle</i>
+           </div>
             </div>
             
-            <Link className="profil-link" to="/profile">
+            <Link className="profil-link " to="/profile">
              <i className="material-icons">person</i>
             </Link>
           
