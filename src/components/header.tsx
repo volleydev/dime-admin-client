@@ -5,18 +5,17 @@ import { Link } from "react-router-dom";
 
 
 export const Header: FC<{ signedIn?: boolean }> = ({ signedIn }) => {
-  const [open, setOpen] = useState(false);
 
+  const [open, setOpen] = useState(false);
+  
   const onClick = () => setOpen(!open);
   
   const handleClick = (e) => {
-    console.log(e.target);
     const isliOutside = !e.target.closest("li");
     const isaOutside = !e.target.closest("a");
     
     if ((isaOutside|| isliOutside) && open) {
-      setOpen(false);
-    }
+    setOpen(false);  
   };
 
   useEffect(() => {
@@ -67,7 +66,7 @@ export const Header: FC<{ signedIn?: boolean }> = ({ signedIn }) => {
           </>
         )}
       </nav>
-
+        {/* @jp3492 den Part musst du mir Bitte nchmal erklären */}
       {signedIn ? (
         <>
         </>
