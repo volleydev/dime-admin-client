@@ -24,6 +24,37 @@ nav {
   }
 }
 
+// login & out dropdown
+
+.menu {
+  background: var(--cl-pri-d);
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  > li {
+    list-style: none;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > * {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
 .nav-bar {
   display: flex;
   justify-content: flex-end;
@@ -47,6 +78,8 @@ nav {
   top: -0.1em;
 }
 
+// @media
+
 @media screen and (max-width: 600px) {
   .myCircle {
     display: inline;
@@ -57,7 +90,7 @@ nav {
       right: 0.37em;
       color: var(--cl-pri);
       cursor: pointer;
-      transition: transform 1s ease-in-out;
+      transition: transform 1s;
       &:hover {
         transform: rotate(180deg);
       }
