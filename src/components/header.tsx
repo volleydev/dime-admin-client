@@ -1,81 +1,74 @@
-import './header.scss'
-import { FC, useState, useEffect } from "react";
+import "./header.scss";
+import React, { FC, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
+interface HeaderProps {
+  signedIn: boolean;
+}
 
+export const Header: FC<HeaderProps> = ({ signedIn }) => {
+  const [open, setOpen] = useState<boolean>(false);
 
-export const Header: FC<{ signedIn?: boolean }> = ({ signedIn }) => {
+  const handleClick = useCallback(
+    (e) => {
+      const isliOutside = !e.target.closest("li");
+      const isaOutside = !e.target.closest("a");
 
-  const [open, setOpen] = useState(false);
-  
-  const onClick = () => setOpen(!open);
-  
-  const handleClick = (e) => {
-    const isliOutside = !e.target.closest("li");
-    const isaOutside = !e.target.closest("a");
-    
-    if ((isaOutside|| isliOutside) && open) {
-    setOpen(false);  
-  };
+      if ((isaOutside || isliOutside) && open) {
+        setOpen(false);
+      }
+    },
+    [open, setOpen]
+  );
 
   useEffect(() => {
-    
     document.addEventListener("click", handleClick);
-    
+
     return () => {
-    
       document.removeEventListener("click", handleClick);
-    
     };
-  }, [open]);
+  }, [open, handleClick]);
 
   return (
     <header>
       <nav>
-        {signedIn && (
+        {signedIn ? (
           <>
-          <h2>hello</h2>
-          <div className="nav-bar">
-            <Link className="link" to="/">Menus </Link> 
-            <Link className="link-res" to="/"> <i className="material-icons">menu</i></Link> 
-           
-            <Link className="link" to="/items"> Food/Drinks</Link>
-            <Link className="link-res" to="/items"> <i className="material-icons">restaurant_menu</i></Link>
-            
-            <Link className="link" to="/extras"> Extras/Toppings</Link>
-            <Link className="link-res" to="/extras"> <i className="material-icons">note_add</i></Link>
-           
-           <div className="myCircle ">
-           <i className="material-icons circle">add_circle</i>
-           
-           </div>
+            <h2>hello</h2>
+            <div className="nav-bar">
+              {/* 1 Link mit label und i -> css hiden bie MQ */}
+              <Link to="/">
+                <label>Menus</label>
+                <i className="material-icons">menu</i>
+              </Link>
+              <Link className="link" to="/items">
+                Food/Drinks
+              </Link>
+              <Link className="link-res" to="/items">
+                <i className="material-icons">restaurant_menu</i>
+              </Link>
+              <Link className="link" to="/extras">
+                Extras/Toppings
+              </Link>
+              <Link className="link-res" to="/extras">
+                <i className="material-icons">note_add</i>
+              </Link>
+              <div className="myCircle ">
+                <i className="material-icons circle">add_circle</i>
+              </div>
             </div>
-            
-            
-            <Link   className="profil-link " to="/profile">
-             <i onClick={onClick} className="material-icons">person</i>
+            <Link className="profil-link " to="/profile">
+              Profile
+              {/* Logout logic in Porfile page */}
+              {/* <button onClick={() => signOut()}>logOut</button> */}
             </Link>
-
-            <div  
-             className={`menu ${open ? "active" : "inactive"}`}
-            >
-                   <li><a className="log" >logOut</a></li> 
-                   {/* href="/auth/login" */}
-            </div>
-          
+          </>
+        ) : (
+          <>
+            <Link to="/auth/login">Login</Link>
           </>
         )}
       </nav>
-        {/* @jp3492 den Part musst du mir Bitte nchmal erklären */}
-      {signedIn ? (
-        <>
-        </>
-      ) : (
-        <>
-          <Link to="/auth/login">Login</Link>
-        </>
-      )}
-
     </header>
   );
 };
