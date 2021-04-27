@@ -9,6 +9,7 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ signedIn }) => {
   const [open, setOpen] = useState<boolean>(false);
 
+  // Aufräumen
   const handleClick = useCallback(
     (e) => {
       const isliOutside = !e.target.closest("li");

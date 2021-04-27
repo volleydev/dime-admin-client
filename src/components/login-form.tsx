@@ -46,4 +46,5 @@ export const LogIn = () => {
       <Link to="/auth/signUp">Sign Up</Link>
     </div>
   );
+
 };
