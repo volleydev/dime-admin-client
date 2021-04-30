@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Link, RouteProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { get } from "../stores/menu";
 
@@ -40,7 +40,7 @@ export const MenusPage: FC = () => {
         <ul>
           {menus.map((m, i) => (
             <Link to={`/menu/${m.id}`}>
-              <img src="https://via.placeholder.com/150" />
+              <img alt="placeholder img" src="https://via.placeholder.com/150" />
               <li key={i}>{`Menu ${i}`}</li>
             </Link>
           ))}

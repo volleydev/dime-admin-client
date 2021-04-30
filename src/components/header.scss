@@ -25,7 +25,9 @@ nav {
   }
 }
 
-// login & out dropdown
+a.profil-link {
+  display: block;
+}
 
 .menu {
   background: var(--cl-pri-d);
@@ -36,21 +38,13 @@ nav {
   width: 100px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-20px);
-  &.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
   > li {
     list-style: none;
     height: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
-
     > * {
-      text-decoration: none;
       color: #000;
     }
   }
@@ -60,14 +54,15 @@ nav {
   display: flex;
   justify-content: flex-end;
   gap: calc(var(--space) * 2);
-  .link {
-    color: #fff;
-    text-decoration: none;
+  > a {
+    > i {
+      display: none;
+    }
+    > label {
+      color: #000;
+      font-size: 18px;
+    }
   }
-}
-
-.link-res {
-  display: none;
 }
 
 .myCircle {
@@ -95,19 +90,9 @@ nav {
       right: 0.37em;
       color: var(--cl-pri);
       cursor: pointer;
-      transition: transform 1s;
-      &:hover {
-        transform: rotate(180deg);
-      }
     }
   }
 
-  .link-res {
-    display: inline;
-  }
-  .link {
-    display: none;
-  }
   .nav-bar {
     position: fixed;
     bottom: 0;
@@ -122,10 +107,18 @@ nav {
     align-content: center;
     > a {
       margin: 0 auto;
+
       > i {
+        display: inline-block;
         font-size: 2.5em;
         color: #fff;
       }
+      > label {
+        display: none;
+      }
     }
+  }
+  a.profil-link {
+    display: none;
   }
 }

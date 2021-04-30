@@ -37,32 +37,32 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
           <>
             <h2>hello</h2>
             <div className="nav-bar">
-              {/* 1 Link mit label und i -> css hiden bie MQ */}
-              <Link to="/">
+              <Link to="/menus">
                 <label>Menus</label>
                 <i className="material-icons">menu</i>
               </Link>
-              <Link className="link" to="/items">
-                Food/Drinks
+
+              <Link to="/items">
+              <i className="material-icons">restaurant_menu</i>
+              <label>Food/Drinks</label>
               </Link>
-              <Link className="link-res" to="/items">
-                <i className="material-icons">restaurant_menu</i>
+
+              <Link to="/extras">
+              <i className="material-icons">note_add</i>
+              <label>Extras/Toppings</label>        
               </Link>
-              <Link className="link" to="/extras">
-                Extras/Toppings
+              <Link className="profil-link" to="/profile">
+              <i className="material-icons">person</i>
+              <label>Profile</label>       
+                {/* Logout logic in Porfile page */}
+                {/* <button onClick={() => signOut()}>logOut</button> */}
               </Link>
-              <Link className="link-res" to="/extras">
-                <i className="material-icons">note_add</i>
-              </Link>
+              
               <div className="myCircle ">
                 <i className="material-icons circle">add_circle</i>
               </div>
             </div>
-            <Link className="profil-link " to="/profile">
-              Profile
-              {/* Logout logic in Porfile page */}
-              {/* <button onClick={() => signOut()}>logOut</button> */}
-            </Link>
+        
           </>
         ) : (
           <>
