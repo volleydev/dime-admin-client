@@ -1,0 +1,45 @@
+.menu-list {
+  > a {
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid #e8eaed;
+  }
+}
+
+.menu-contend {
+  width: 100%;
+  p {
+    color: black;
+  }
+}
+
+.menu-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.3rem;
+  padding: 1rem 0;
+  p {
+    color: black;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .menu-list {
+    img {
+      width: 30%;
+      height: 100%/2;
+    }
+    a {
+      height: 8rem;
+    }
+    .menu-header {
+      padding: 0 0 1rem 0;
+    }
+  }
+  .menu-list:last-child {
+    padding-bottom: 60px;
+  }
+}

@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './styles/menus.scss'
 
 import { get } from "../stores/menu";
 
@@ -37,11 +38,17 @@ export const MenusPage: FC = () => {
       ) : loading ? (
         <div>Loading Spinner</div>
       ) : (
-        <ul>
+        <ul className="menu-list">
           {menus.map((m, i) => (
             <Link to={`/menu/${m.id}`}>
               <img alt="placeholder img" src="https://via.placeholder.com/150" />
-              <li key={i}>{`Menu ${i}`}</li>
+              <div className="menu-contend">
+                <div className="menu-header">
+              <p key={i}>{`Menu ${i}`}</p>
+              <p>3,5€</p>
+              </div>              
+              <p>jdaudhasuhdauhdaou</p>
+              </div>
             </Link>
           ))}
         </ul>
