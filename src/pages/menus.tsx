@@ -32,7 +32,6 @@ export const MenusPage: FC = () => {
 
   return (
     <main>
-      Menus Page
       {error ? (
         <div>{`Error while fetching Menus: ${error}`}</div>
       ) : loading ? (

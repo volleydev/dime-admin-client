@@ -1,0 +1,52 @@
+.modal-container {
+  position: absolute;
+  border: 1px grey;
+  width: 50%;
+  height: 550px;
+  left: 25%;
+  top: 200%;
+  background: #fff;
+  box-shadow: var(--shadow-l);
+  border-radius: 10px;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .header {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    > svg {
+      display: block;
+      height: 9rem;
+    }
+  }
+}
+.body {
+  width: 100%;
+  .menu-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--space) * 3);
+    i {
+      font-size: 5rem;
+    }
+    input[type="text/name"] {
+      width: 50%;
+      padding: 1.2rem;
+      text-align: center;
+      outline: none;
+    }
+    input[type="text"] {
+      width: 80%;
+      height: 80px;
+      text-align: center;
+      outline: none;
+    }
+    input[type="number"] {
+      text-align: center;
+      outline: none;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import "./header.scss";
 import React, { FC, useState, useEffect, useCallback } from "react";
+import Modal from './modal'
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
@@ -7,28 +8,31 @@ interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ signedIn }) => {
-  const [open, setOpen] = useState<boolean>(false);
 
-  // Aufräumen
-  const handleClick = useCallback(
-    (e) => {
-      const isliOutside = !e.target.closest("li");
-      const isaOutside = !e.target.closest("a");
 
-      if ((isaOutside || isliOutside) && open) {
-        setOpen(false);
-      }
-    },
-    [open, setOpen]
-  );
+ 
 
-  useEffect(() => {
-    document.addEventListener("click", handleClick);
+  const [show, setshow] = useState<boolean>(false);
+  
 
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  }, [open, handleClick]);
+
+  const handleClick = (e) =>  {
+    //@ts-ignore
+  //   const isOutside = e.target.className(".circle")
+  //   if (isOutside && show) {
+  //     setshow(false);
+  //   } else {
+  //    setshow(!show)
+  // }
+   setshow(!show)
+  }
+
+  //  useEffect(()=> {
+  //      document.addEventListener("click", handleClick);
+  //    return () => {
+  //      document.removeEventListener("click", handleClick);
+  //    }
+  //  },[show])
 
   return (
     <header>
@@ -59,9 +63,11 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
               </Link>
               
               <div className="myCircle ">
-                <i className="material-icons circle">add_circle</i>
+                <i className="material-icons circle" onClick={handleClick}>add_circle</i>
               </div>
             </div>
+          
+         
         
           </>
         ) : (
@@ -70,6 +76,9 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
           </>
         )}
       </nav>
+
+    {show? <Modal/> : ""}
     </header>
+    
   );
 };
