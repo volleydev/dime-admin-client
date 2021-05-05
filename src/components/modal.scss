@@ -5,6 +5,7 @@
   height: 550px;
   left: 25%;
   top: 200%;
+  min-width: 450px;
   background: #fff;
   box-shadow: var(--shadow-l);
   border-radius: 10px;
@@ -48,5 +49,14 @@
       text-align: center;
       outline: none;
     }
+  }
+}
+
+// media
+
+@media screen and (max-width: 600px) {
+  .modal-container {
+    width: 100%;
+    left: unset;
   }
 }
