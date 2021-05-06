@@ -1,26 +1,15 @@
 .modal-container {
-  position: absolute;
-  border: 1px grey;
-  width: 50%;
+  position: fixed;
+  width: 40%;
+  max-width: 600px;
+  min-width: 400px;
   height: 550px;
-  left: 25%;
-  top: 200%;
-  min-width: 450px;
-  background: #fff;
   box-shadow: var(--shadow-l);
-  border-radius: 10px;
-  display: flex;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .header {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  > svg {
     width: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-    > svg {
-      display: block;
-      height: 9rem;
-    }
   }
 }
 .body {
@@ -55,8 +44,4 @@
 // media
 
 @media screen and (max-width: 600px) {
-  .modal-container {
-    width: 100%;
-    left: unset;
-  }
 }
