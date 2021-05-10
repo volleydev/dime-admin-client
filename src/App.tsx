@@ -10,6 +10,7 @@ import "firebase/auth";
 
 import firebaseConfig from "./firebaseConfig.json";
 import { useEffect, useMemo } from "react";
+import { Modal } from "./components/mechanics/modal";
 
 const App = () => {
   const user = useAuthUser();
@@ -40,9 +41,10 @@ const App = () => {
             <Route exact path="/menus" component={MenusPage} />
             {/* um props an die component in der Route zu geben: */}
             {/* <Route exact path="/menus" component={(props) => <MenusPage {...props} user={user} /> }/>  */}
-             {/* <Route exact path="/profile" component={Proil} /> */}
+            {/* <Route exact path="/profile" component={Proil} /> */}
           </>
         )}
+        <Modal />
       </BrowserRouter>
     </div>
   );
