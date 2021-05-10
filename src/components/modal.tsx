@@ -5,7 +5,6 @@ import "./modal.scss";
 //      und muss in der Lage sein mehrere Komponenten zu render.
 // Wir wollen nicht für jede Form ein eigenes modal anlegen!
 
-
 const Modal = () => {
   return (
     <div className="modal-container">

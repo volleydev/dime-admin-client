@@ -18,21 +18,23 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
 
   const handleClick = (e) =>  {
     //@ts-ignore
-  //   const isOutside = e.target.className(".circle")
-  //   if (isOutside && show) {
-  //     setshow(false);
-  //   } else {
-  //    setshow(!show)
-  // }
-   setshow(!show)
+     const isOutside = e.target.closest(".modal-container");
+     console.log(isOutside);
+     if (isOutside && show) {
+       setshow(true);
+     }
+     if(isOutside === null && show){
+       setshow(false)
+     }
+     
   }
 
-  //  useEffect(()=> {
-  //      document.addEventListener("click", handleClick);
-  //    return () => {
-  //      document.removeEventListener("click", handleClick);
-  //    }
-  //  },[show])
+    useEffect(()=> {
+        document.addEventListener("click", handleClick);
+      return () => {
+        document.removeEventListener("click", handleClick);
+      }
+    },[show])
 
   return (
     <header>
@@ -63,7 +65,7 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
               </Link>
               
               <div className="myCircle ">
-                <i className="material-icons circle" onClick={handleClick}>add_circle</i>
+                <i className="material-icons circle" onClick={() => setshow(!show)}>add_circle</i>
               </div>
             </div>
           
@@ -77,7 +79,7 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
         )}
       </nav>
 
-    {show? <Modal/> : ""}
+    {show?  <Modal/>  : ""}
     </header>
     
   );
