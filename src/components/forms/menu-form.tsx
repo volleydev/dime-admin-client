@@ -1,13 +1,6 @@
-import "./modal.scss";
-
-// @Rom: BITTE LESEN!!!
-// Ein Modal soll eine global erreichbare Komponente sein
-//      und muss in der Lage sein mehrere Komponenten zu render.
-// Wir wollen nicht für jede Form ein eigenes modal anlegen!
-
-const Modal = () => {
+export const MenuForm = () => {
   return (
-    <div className="modal-container">
+    <div>
       <div className="header">
         {/* das svg ist nicht responsive */}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -32,5 +25,3 @@ const Modal = () => {
     </div>
   );
 };
-
-export default Modal;
