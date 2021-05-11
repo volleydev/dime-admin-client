@@ -8,6 +8,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #fff;
   > svg {
     width: 100%;
   }
@@ -44,4 +45,8 @@
 // media
 
 @media screen and (max-width: 600px) {
+  .modal-container {
+    height: 450px;
+    min-width: max-content;
+  }
 }

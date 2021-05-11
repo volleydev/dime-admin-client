@@ -19,7 +19,6 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
   const handleClick = (e) =>  {
     //@ts-ignore
      const isOutside = e.target.closest(".modal-container");
-     console.log(isOutside);
      if (isOutside && show) {
        setshow(true);
      }
