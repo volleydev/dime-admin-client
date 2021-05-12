@@ -1,7 +1,6 @@
 import { Component, FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './styles/menus.scss'
-
 import { get } from "../stores/menu";
 import { Menu } from "../components/list/menu";
 
@@ -40,7 +39,7 @@ export const MenusPage: FC = () => {
       ) : (
         <ul className="menu-list">
           {menus.map((m, i) => (
-            <Link to={`list/menu/${m.id}` }>
+            <Link to={`list/menu/${m.id}`}  >
               <img alt="placeholder img" src="https://via.placeholder.com/150" />
               <div className="menu-contend">
                 <div className="menu-header">

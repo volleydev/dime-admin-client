@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useGlobalState, setGlobalState } from "../../utils/globalState";
-import "./Modal.scss";
+// import "./Modal.scss";
 
 // How to make a components visible in the Modal
 // 1. Import component (like MenuForm)
