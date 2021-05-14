@@ -3,14 +3,15 @@ import "./list.scss";
 import { Menu } from "./menu";
 import { Item } from "./item";
 import { Extra } from "./extra";
-import { MenuProps } from "../../stores/menu";
+// import { MenuProps } from "../../stores/menu";
+// import { ItemProps } from "../../stores/item";
 
 // Wir benutzen eine einheitliche List Component damit das Styling für die liste konstant bleibt
 // und splitten die list items auf in Menu/Item/Extra um für diese List items eine jeweils
 // spezifische Komponente zu rendern
 
 interface ListProps {
-  items: MenuProps[];
+  items: any[];
   type: "menu" | "item" | "extra";
 }
 

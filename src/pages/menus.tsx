@@ -24,6 +24,8 @@ export const MenusPage: FC = () => {
     getMenus();
   }, []);
 
+  console.log(menus);
+
   return (
     <main>
       {error ? (
@@ -36,16 +38,7 @@ export const MenusPage: FC = () => {
         <List items={menus} type="menu" />
         // <ul className="menu-list">
         //   {menus.map((m, i) => (
-        //     <Link to={`list/menu/${m.id}`}  >
-        //       <img alt="placeholder img" src="https://via.placeholder.com/150" />
-        //       <div className="menu-contend">
-        //         <div className="menu-header">
-        //       <p key={i}>{`Menu ${i}`}</p>
-        //       <p>3,5€</p>
-        //       </div>
-        //       <p>jdaudhasuhdauhdaou</p>
-        //       </div>
-        //     </Link>
+
         //   ))}
         // </ul>
       )}

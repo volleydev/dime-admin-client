@@ -12,29 +12,11 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ signedIn }) => {
   const { pathname } = useLocation();
 
-  // const [show, setshow] = useState<boolean>(false);
-
-  // const handleClick = (e) => {
-  //   //@ts-ignore
-  //   const isOutside = e.target.closest(".modal-container");
-  //   if (isOutside && show) {
-  //     setshow(true);
-  //   }
-  //   if (isOutside === null && show) {
-  //     setshow(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("click", handleClick);
-  //   return () => {
-  //     document.removeEventListener("click", handleClick);
-  //   };
-  // }, [show]);
-
   const handleAdd = () => {
     if (pathname === "/menus") {
       setGlobalState(MODAL, { component: MODAL_COMPONENTS.MENU_FORM });
+    } else if (pathname === "/items") {
+      setGlobalState(MODAL, { component: MODAL_COMPONENTS.ITEM_FORM });
     }
   };
 

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useGlobalState, setGlobalState } from "../../utils/globalState";
-// import "./Modal.scss";
+import "./modal.scss";
 
 // How to make a components visible in the Modal
 // 1. Import component (like MenuForm)
@@ -9,18 +9,20 @@ import { useGlobalState, setGlobalState } from "../../utils/globalState";
 // 4. Call setGlobalState("MODAL", MODAL_COMPONENTS.indentifier)
 
 import { MenuForm } from "../forms/menu-form";
-
+import { ItemForm } from "../forms/item-form";
 // global state identifier
 export const MODAL = "MODAL";
 
 // modal component identifiers
 export const MODAL_COMPONENTS = {
   MENU_FORM: "MENU_FORM",
+  ITEM_FORM: "ITEM_FORM",
 };
 
 // modal component map
 const COMPONENTS = {
   [MODAL_COMPONENTS.MENU_FORM]: MenuForm,
+  [MODAL_COMPONENTS.ITEM_FORM]: ItemForm,
 };
 
 const INITIAL_CONFIG = {
@@ -33,7 +35,7 @@ const INITIAL_CONFIG = {
 let preventClose = false;
 
 export const Modal = () => {
-  const [modal, setModal] = useGlobalState(MODAL, INITIAL_CONFIG);
+  const [modal, setModal] = useGlobalState("MODAL", INITIAL_CONFIG);
   const ref: any = useRef(null);
 
   const component = (modal.component || "").toUpperCase();
