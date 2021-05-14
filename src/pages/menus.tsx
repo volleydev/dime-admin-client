@@ -1,23 +1,17 @@
-import { Component, FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import './styles/menus.scss'
-import { get } from "../stores/menu";
-import { Menu } from "../components/list/menu";
+import { FC, useEffect, useState } from "react";
+import "./styles/menus.scss";
 
-interface MenuProps {
-  id: string;
-}
+import { get, MenuProps } from "../stores/menu";
+import { List } from "../components/list/list";
 
 export const MenusPage: FC = () => {
-  // 1. props no need
-  // 2. state?
   const [menus, setMenus] = useState<MenuProps[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>();
 
   const getMenus = async () => {
     try {
-      const menus = await get();
+      const { items: menus } = await get();
       setMenus(menus);
       setLoading(false);
     } catch (error) {
@@ -37,20 +31,23 @@ export const MenusPage: FC = () => {
       ) : loading ? (
         <div>Loading Spinner</div>
       ) : (
-        <ul className="menu-list">
-          {menus.map((m, i) => (
-            <Link to={`list/menu/${m.id}`}  >
-              <img alt="placeholder img" src="https://via.placeholder.com/150" />
-              <div className="menu-contend">
-                <div className="menu-header">
-              <p key={i}>{`Menu ${i}`}</p>
-              <p>3,5€</p>
-              </div>              
-              <p>jdaudhasuhdauhdaou</p>
-              </div> 
-            </Link>
-          ))}
-        </ul>
+        // Lass mal hier die List component benutzen die unter ./list angelegt ist
+        // Das soll eine reusable component werden mit der wir alle Liste representieren
+        <List items={menus} type="menu" />
+        // <ul className="menu-list">
+        //   {menus.map((m, i) => (
+        //     <Link to={`list/menu/${m.id}`}  >
+        //       <img alt="placeholder img" src="https://via.placeholder.com/150" />
+        //       <div className="menu-contend">
+        //         <div className="menu-header">
+        //       <p key={i}>{`Menu ${i}`}</p>
+        //       <p>3,5€</p>
+        //       </div>
+        //       <p>jdaudhasuhdauhdaou</p>
+        //       </div>
+        //     </Link>
+        //   ))}
+        // </ul>
       )}
     </main>
   );

@@ -1,39 +1,42 @@
 import "./header.scss";
 import React, { FC, useState, useEffect, useCallback } from "react";
-import Modal from './modal'
-import { Link } from "react-router-dom";
+import Modal from "./modal";
+import { Link, useLocation } from "react-router-dom";
+import { setGlobalState } from "../utils/globalState";
+import { MODAL, MODAL_COMPONENTS } from "./mechanics/modal";
 
 interface HeaderProps {
   signedIn: boolean;
 }
 
 export const Header: FC<HeaderProps> = ({ signedIn }) => {
+  const { pathname } = useLocation();
 
+  // const [show, setshow] = useState<boolean>(false);
 
- 
+  // const handleClick = (e) => {
+  //   //@ts-ignore
+  //   const isOutside = e.target.closest(".modal-container");
+  //   if (isOutside && show) {
+  //     setshow(true);
+  //   }
+  //   if (isOutside === null && show) {
+  //     setshow(false);
+  //   }
+  // };
 
-  const [show, setshow] = useState<boolean>(false);
-  
+  // useEffect(() => {
+  //   document.addEventListener("click", handleClick);
+  //   return () => {
+  //     document.removeEventListener("click", handleClick);
+  //   };
+  // }, [show]);
 
-
-  const handleClick = (e) =>  {
-    //@ts-ignore
-     const isOutside = e.target.closest(".modal-container");
-     if (isOutside && show) {
-       setshow(true);
-     }
-     if(isOutside === null && show){
-       setshow(false)
-     }
-     
-  }
-
-    useEffect(()=> {
-        document.addEventListener("click", handleClick);
-      return () => {
-        document.removeEventListener("click", handleClick);
-      }
-    },[show])
+  const handleAdd = () => {
+    if (pathname === "/menus") {
+      setGlobalState(MODAL, { component: MODAL_COMPONENTS.MENU_FORM });
+    }
+  };
 
   return (
     <header>
@@ -48,28 +51,27 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
               </Link>
 
               <Link to="/items">
-              <i className="material-icons">restaurant_menu</i>
-              <label>Food/Drinks</label>
+                <i className="material-icons">restaurant_menu</i>
+                <label>Food/Drinks</label>
               </Link>
 
               <Link to="/extras">
-              <i className="material-icons">note_add</i>
-              <label>Extras/Toppings</label>        
+                <i className="material-icons">note_add</i>
+                <label>Extras/Toppings</label>
               </Link>
               <Link className="profil-link" to="/profile">
-              <i className="material-icons">person</i>
-              <label>Profile</label>       
+                <i className="material-icons">person</i>
+                <label>Profile</label>
                 {/* Logout logic in Porfile page */}
                 {/* <button onClick={() => signOut()}>logOut</button> */}
               </Link>
-              
+
               <div className="myCircle ">
-                <i className="material-icons circle" onClick={() => setshow(!show)}>add_circle</i>
+                <i className="material-icons circle" onClick={handleAdd}>
+                  add_circle
+                </i>
               </div>
             </div>
-          
-         
-        
           </>
         ) : (
           <>
@@ -78,8 +80,7 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
         )}
       </nav>
 
-    {show?  <Modal/>  : ""}
+      {/* {show?  <Modal/>  : ""} */}
     </header>
-    
   );
 };

@@ -10,12 +10,15 @@ import { useGlobalState, setGlobalState } from "../../utils/globalState";
 
 import { MenuForm } from "../forms/menu-form";
 
+// global state identifier
 export const MODAL = "MODAL";
 
+// modal component identifiers
 export const MODAL_COMPONENTS = {
   MENU_FORM: "MENU_FORM",
 };
 
+// modal component map
 const COMPONENTS = {
   [MODAL_COMPONENTS.MENU_FORM]: MenuForm,
 };
@@ -25,6 +28,8 @@ const INITIAL_CONFIG = {
   props: {},
 };
 
+// prevent closeModal when mouse is clicked and dragged over the modal border
+// if we dont do that a click will be fired on the backdrop and will close it
 let preventClose = false;
 
 export const Modal = () => {
