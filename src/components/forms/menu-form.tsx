@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MenuProps, post } from "../../stores/menu";
+import "./form.scss"
 
 export const MenuForm = (menu: MenuProps) => {
   const [name, setName] = useState(menu.name || "");
@@ -18,8 +19,9 @@ export const MenuForm = (menu: MenuProps) => {
         value={name}
         placeholder="Menu name"
       />
-      <input
-        type="text"
+       
+      <textarea
+        rows={10}
         onChange={(e) => setDescription(e.target.value)}
         value={description}
         placeholder="Menu description"

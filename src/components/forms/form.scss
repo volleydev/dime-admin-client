@@ -1,0 +1,69 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-gap: calc(var(--space) * 2);
+  align-items: center;
+  padding: 2rem;
+  gap: calc(var(--space) * 2);
+  width: 50%;
+  max-width: 600px;
+  height: fit-content;
+  border-radius: 10px;
+  background: rgb(255, 193, 7);
+  background: linear-gradient(
+    163deg,
+    rgba(255, 193, 7, 1) 30%,
+    rgba(227, 221, 235, 1) 53%,
+    rgba(0, 188, 212, 1) 100%
+  );
+  input[type="text/name"] {
+    width: 60%;
+    height: 2.5rem;
+    text-align: center;
+    outline: none;
+  }
+  textarea {
+    max-width: 90%;
+    min-width: 70%;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    outline: none;
+  }
+  input[type="number"] {
+    text-align: center;
+    color: red;
+    width: 60%;
+    height: 2.5rem;
+    outline: none;
+  }
+  button {
+    width: 50%;
+    height: 3rem;
+    text-align: center;
+  }
+}
+
+// mediaQue
+
+@media screen and (max-width: 600px) {
+  .form {
+    padding: 1rem;
+    input[type="text/name"] {
+      height: 2rem;
+    }
+    textarea {
+      width: 100%;
+    }
+    input[type="number"] {
+      height: 2rem;
+    }
+    button {
+      height: 2rem;
+      width: 50%;
+      padding: 0px;
+    }
+  }
+}

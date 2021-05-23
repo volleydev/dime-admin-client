@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ItemProps, ITEMS, post } from "../../stores/item";
+import './form.scss'
 import {
   getGlobalState,
   setGlobalState,
@@ -33,8 +34,8 @@ export const ItemForm = (item: ItemProps) => {
         value={name}
         placeholder="Menu name"
       />
-      <input
-        type="text"
+      <textarea
+        rows={10}
         onChange={(e) => setDescription(e.target.value)}
         value={description}
         placeholder="Menu description"

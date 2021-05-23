@@ -1,5 +1,5 @@
 import "./header.scss";
-import React, { FC, useState, useEffect, useCallback } from "react";
+import React, { FC } from "react";
 import Modal from "./modal";
 import { Link, useLocation } from "react-router-dom";
 import { setGlobalState } from "../utils/globalState";
@@ -54,6 +54,7 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
                 </i>
               </div>
             </div>
+          
           </>
         ) : (
           <>
@@ -61,7 +62,6 @@ export const Header: FC<HeaderProps> = ({ signedIn }) => {
           </>
         )}
       </nav>
-
       {/* {show?  <Modal/>  : ""} */}
     </header>
   );
